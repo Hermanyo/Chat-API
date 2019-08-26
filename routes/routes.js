@@ -21,14 +21,14 @@ app.get("/", (request, response) => {
             return true;
         })
         .catch(error => {
-            response.status(201).send("Algo de errado aconteceu :( " + error)
+            response.status(201).send(error)
         })
      
 })  
 
-app.get("/createChat/:id", async (req,response) => { 
+app.get("/createChat", async (req,response) => { 
     let data = { 
-        _id: JSON.parse(JSON.stringify(await admin.auth().getUserByEmail(req.params.id))).uid, //req.params.id, 
+        _id: JSON.parse(JSON.stringify(await admin.auth().getUserByEmail(req.query.id))).uid, //req.params.id, 
         createdAt: new Date().getTime(),
         messages:[]
     }
@@ -55,4 +55,19 @@ app.get('/sendMessage', async (req,res) => {
     }
     return false;
 }) 
+app.get('/loadMessage', (req, res) => {
+    const chatRef = chat.doc(req.query.chatId);
+    chatRef.get()
+    .then((response) => { 
+        const limit = response.data().messages.filter((value,index) => {
+            return index < req.query.limit ? req.query.limit : 20;
+        })
+        console.log(limit)
+        return true
+    })
+    .catch((error)=>{
+        res.send(error)
+    })
+    return false;
+})
 module.exports = app; 
