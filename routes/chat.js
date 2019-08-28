@@ -4,7 +4,8 @@ const cors = require("cors")
 const express = require("express")
 const app = express()   
 
-app.use(cors({ origin: true })) 
+app.use(cors({ origin: true }))
+ 
 app.get("/createChat", (req,res) => { //This route will create the Chat (a doc with random id)
     let data = { //Chat structure
         _id: req.query.id, 
