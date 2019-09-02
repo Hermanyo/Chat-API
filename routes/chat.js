@@ -19,8 +19,7 @@ app.post('/post',(req,res) => {
                 return true
             })
             .catch(error => {
-                res.status(201).send(error);
-                return false;
+                res.status(201).send(error); 
             })
     }
     else if (req.body.postMethod === 'sendMessage') {//This route will create the Chat (a doc with random id)
@@ -48,8 +47,7 @@ app.get('/:loadChats', (req, res) => { //This route will load all chats associat
             return true
         })
         .catch((error) => {
-            res.status(201).send(error)
-            return false;
+            res.status(201).send(error) 
         }) 
 }) 
 
