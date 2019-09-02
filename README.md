@@ -29,12 +29,16 @@ axios.post('https://us-central1-<your_firebase_project_name>.cloudfunctions.net/
     ]
   }) 
 .then((response) => { 
-      //do anything if chat is successfuly created 
+      // do anything if the chat was successfully created
+     // if chat was created successfully, a 'Chat' collection was created in your database where Chat.document is a generic chatId
+    //  and the chatId data is your chat content
  })
  .catch((error) => {
      //do anything if chat is not created  
  })
 ```
+ 
+    
 ## Example2
 Load chats associated with user id
 
