@@ -1,4 +1,4 @@
-# ChatApi using Cloud Firestore and express with Nodejs
+# ChatApi using Cloud Firestore and Express with Nodejs
 
 Run below commands to clone this repository
 
