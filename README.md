@@ -30,7 +30,8 @@ axios.post('https://us-central1-<your_firebase_project_name>.cloudfunctions.net/
   }) 
 .then((response) => { 
       // do anything if the chat was successfully created
-     // if chat was created successfully, a 'Chat' collection was created in your database where Chat.document is a generic chatId
+     // If the chat was created successfully, a 'Chat' collection has been created (if it does not exist) in your database
+     // where    Chat.document is a generic chatId
     //  and the chatId data is your chat content
  })
  .catch((error) => {
