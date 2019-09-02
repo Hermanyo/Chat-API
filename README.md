@@ -8,15 +8,13 @@ For upload this API into your Firebase Functions, run below code
 
 <code> firebase deploy --only functions:chatApi --project <your_firebase_project_name> </code>
 
-Go to the [Firebase Console](https://console.firebase.google.com) > Functions, copy the path that like with 
+Go to the [Firebase Console](https://console.firebase.google.com) > Functions, Copy the path like
 
 https://us-central1-<your_firebase_project_name>.cloudfunctions.net/chatApi 
 
 Now into your project fetch functions below using chatApi path, like this
-
-How to use this API into my project?
-
-Into your project use anyone Fetch Resource like [Node Fetch](https://github.com/bitinn/node-fetch) or [Axios](https://github.com/axios/axios).
+ 
+In your project, use any Fetch Resource as [Node Fetch](https://github.com/bitinn/node-fetch) or [Axios](https://github.com/axios/axios).
 
 ## Example1 
 Create a chatroom with sender and receiver
