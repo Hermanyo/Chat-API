@@ -1,9 +1,17 @@
-const functions = require("firebase-functions")
-const chatApi = require('./routes/chat') 
+const functions = require('firebase-functions')
+    
+const express = require('express')
+const bodyParser = require('body-parser') 
 
-exports.chatApi = functions.https.onRequest((request, response) => {
-    if (!request.path) {
-        request.url = `/${request.url}`
-    }
-    return chatApi(request, response)
-})
+const app = express()
+const main = express()
+
+const chat = require('./routes/chat') 
+
+main.use('/api/v1', app)
+main.use(bodyParser.json())
+main.use(bodyParser.urlencoded({ extended: false })) 
+
+app.use('/chat', chat) 
+
+exports.chatApi = functions.https.onRequest(main)
